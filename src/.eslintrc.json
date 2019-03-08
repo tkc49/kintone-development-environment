@@ -1,0 +1,14 @@
+{
+	"extends": "eslint-config-kintone",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-irregular-whitespace": [
+			"error",
+			{
+				"skipRegExps": true
+			}
+		]
+	}
+}
