@@ -110,7 +110,7 @@ const getCustromizeValues = (contents, browser, ext, settingsAppContents) => {
 
     return contents.reduce((promise, content) => {
 
-        return promise.then(function () {
+        return promise.then(function() {
             // 順番に処理をする
             const type = content.match(/^(http|https):/) ? 'URL' : 'FILE';
             console.log(`- ${browser}/${ext} ${type}: ${content}`);
@@ -130,9 +130,7 @@ const getCustromizeValues = (contents, browser, ext, settingsAppContents) => {
 
                 return stat(file).then((stats) => {
                     // ファイルが存在する
-                    console.log('存在する' + file);
                     return uploadFile(file).then(key => {
-                        console.log('データ追加' + file);
                         values.push({
                             type: 'FILE',
                             file: { fileKey: key }
@@ -141,17 +139,13 @@ const getCustromizeValues = (contents, browser, ext, settingsAppContents) => {
                     });
 
                 }).catch((error) => {
-                    console.log('存在しない' + file);
                     // ファイル存在しない
                     const filePathArray = file.split("/");
                     const fileName = filePathArray[filePathArray.length - 1];
 
                     for (const settingFile of settingsAppContents) {
                         if (settingFile['type'] === 'FILE') {
-                            console.log('a:' + fileName);
-                            console.log('b:' + settingFile['file']['name']);
                             if (fileName === settingFile['file']['name']) {
-                                console.log(settingFile);
                                 values.push({
                                     type: 'FILE',
                                     file: { fileKey: settingFile['file']['fileKey'] }
@@ -163,7 +157,7 @@ const getCustromizeValues = (contents, browser, ext, settingsAppContents) => {
             }
         });
     },
-        Promise.resolve() // 初期値
+    Promise.resolve() // 初期値
     ).then(() => {
         // 配列の処理が終わるとログ出力する
         console.log('- customize: %s', JSON.stringify(values));
@@ -265,9 +259,9 @@ Promise.resolve()
         }, Promise.resolve());
     })
     .then(results => {
-        // const apps = results.map(result => result.app);
-        // console.log(`deploy apps: ${apps}`);
-        // return deployApps(apps);
+        const apps = results.map(result => result.app);
+        console.log(`deploy apps: ${apps}`);
+        return deployApps(apps);
     })
     .then(result => {
         console.log(`all deployed.`);
