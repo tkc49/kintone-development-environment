@@ -1,3 +1,5 @@
 node_modules/
 env/.dev_kintone
 env/.prod_kintone
+env/dev_setting_deploy_app.js
+env/prod_setting_deploy_app.js

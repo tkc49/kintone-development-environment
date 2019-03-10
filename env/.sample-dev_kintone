@@ -1,0 +1,3 @@
+KINTONE_SUBDOMAIN = 'your-kintone-domain'
+KINTONE_USER = 'your-user-name'
+KINTONE_PASSWORD = 'your-password'
