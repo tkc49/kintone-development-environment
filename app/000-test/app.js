@@ -81,19 +81,31 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./000-test/app.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/000-test/app.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./000-test/app.js":
-/*!*************************!*\
-  !*** ./000-test/app.js ***!
-  \*************************/
+/***/ "./src/000-test/app.js":
+/*!*****************************!*\
+  !*** ./src/000-test/app.js ***!
+  \*****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var kintoneUtility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! kintoneUtility */ \"kintoneUtility\");\n/* harmony import */ var kintoneUtility__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(kintoneUtility__WEBPACK_IMPORTED_MODULE_0__);\n // テスト\n\n(function () {\n  kintone.events.on('app.record.index.show', function (event) {\n    console.log(event);\n    kintoneUtility__WEBPACK_IMPORTED_MODULE_0___default.a.rest.getAllRecordsByQuery({\n      app: 247 // query: '',\n      // fields: ['String', 'Number'],\n      // isGuest: false\n\n    }).then(function (response) {\n      console.log(response);\n    }).catch(function (error) {\n      console.log(error);\n    });\n  });\n})();\n\n//# sourceURL=webpack:///./src/000-test/app.js?");
+
+/***/ }),
+
+/***/ "kintoneUtility":
+/*!*********************************!*\
+  !*** external "kintoneUtility" ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log('bb');\n\n//# sourceURL=webpack:///./000-test/app.js?");
+eval("module.exports = kintoneUtility;\n\n//# sourceURL=webpack:///external_%22kintoneUtility%22?");
 
 /***/ })
 

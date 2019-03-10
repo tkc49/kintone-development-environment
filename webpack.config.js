@@ -15,11 +15,11 @@ module.exports = (env, argv) => {
     return {
         // 開発元
         entry: {
-            "000-test": "./000-test/app.js"
+            "000-test": "./src/000-test/app.js"
         },
         // 開発元をコンパイルした時の出力先を設定
         output: {
-            path: path.join(__dirname, "../app"),
+            path: path.join(__dirname, "./app"),
             filename: "[name]/app.js"
         },
         // 各モジュールのインポート文が相対パスだらけにならないようにルートを設定
@@ -27,6 +27,10 @@ module.exports = (env, argv) => {
             modules: [
                 path.join(__dirname, "./src")
             ]
+        },
+        externals: {
+            // kintoneUtitliyをCDNから利用するので。
+            kintoneUtility: 'kintoneUtility'
         },
         module: {
             rules: [
