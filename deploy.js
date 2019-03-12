@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // コマンドラインで hogeho と実行したい場合（nodeをつけない）はshebangが必要だけど
 // 今回は node hogehoge.js(node を指定する)と実行するのでshebang必要なし
 // #!/usr/bin/env node
@@ -257,7 +258,7 @@ Promise.resolve()
         data: param
       }).then(settingAppInfo => {
         return promise.then(results => {
-          results = results || [];
+                    results = results || []; // eslint-disable-line
           return deployAppContents(app, name, contents, settingAppInfo).then(
             revision => {
               console.log(`- revision: ${revision}`);
@@ -280,3 +281,5 @@ Promise.resolve()
   .catch(err => {
     console.error(err);
   });
+
+/* eslint-enable no-console */
