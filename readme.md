@@ -114,15 +114,17 @@ prod（本番環境としてビルド）
 
 ■ 開發環境
 
-`node deploy.js -e dev`
+`node deploy.js -e dev --all or xxx`
 
 ※ ./env/.dev_kintone ファイルが必須<br>
+※ xxxはdev_setting_deploy_app.js で設定したアプリの任意の名前
 
 ■ 本番環境
 
-`node deploy.js -e prod`
+`node deploy.js -e prod --all or xxx`
 
 ※ ./env/.prod_kintone ファイルが必須<br>
+※ xxxはprod_setting_deploy_app.js で設定したアプリの任意の名前
 
 ## その他
 
@@ -131,6 +133,19 @@ prod（本番環境としてビルド）
 1. VS Code のプラグインで ESLint をインストールする
 2. [Cntrl+,] or Preferences -> Settings
 3. "eslint.autoFixOnSave": true に設定する
+
+### PhpStorm で ESLint を利用する場合
+
+```
+File type: Any
+Scope: Project files
+Program: ./node_modules/.bin/eslint (specify full path if needed)
+Arguments: --fix $FilePath$
+Output paths to refresh: $FileDir$
+```
+https://stackoverflow.com/questions/46641682/how-to-configure-eslint-autofix-on-save-in-phpstorm-webstorm
+
+https://medium.com/@netczuk/even-faster-code-formatting-using-eslint-22b80d061461
 
 ## 謝意
 
