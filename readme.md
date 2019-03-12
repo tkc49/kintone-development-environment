@@ -124,6 +124,14 @@ prod（本番環境としてビルド）
 
 ※ ./env/.prod_kintone ファイルが必須<br>
 
+## その他
+
+### VS Code で ESLint を利用する場合
+
+1. VS Code のプラグインで ESLint をインストールする
+2. [Cntrl+,] or Preferences -> Settings
+3. "eslint.autoFixOnSave": true に設定する
+
 ## 謝意
 
 - deploy.js は [logicheart/kintone-dev-base](https://github.com/logicheart/kintone-dev-base) の deploy.js を基にカスタマイズさせていただきました。

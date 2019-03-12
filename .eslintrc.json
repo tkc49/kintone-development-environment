@@ -1,14 +1,30 @@
 {
-	"extends": "eslint-config-kintone",
-	"parserOptions": {
-		"sourceType": "module"
-	},
-	"rules": {
-		"no-irregular-whitespace": [
-			"error",
-			{
-				"skipRegExps": true
-			}
-		]
-	}
+  "extends": ["standard", "prettier", "eslint-config-kintone"],
+  "env": {
+    "browser": true
+  },
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-irregular-whitespace": [
+      "error",
+      {
+        "skipRegExps": true
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false
+      }
+    ],
+    "yoda": 0,
+    "no-unused-vars": 1
+  },
+  "globals": {
+    "$": false
+  }
 }
