@@ -5,6 +5,7 @@
 - webpack で babel を使ってビルド
 - Sass のコンパイル
 - ビルドしたファイルを kintone へデプロイ
+- kintone に既にアップロードされている js ファイルがある場合は、消さすに残す<br>例えば(kintone-printcreator-loader-xx.js)とか。
 
 ## 必須
 
