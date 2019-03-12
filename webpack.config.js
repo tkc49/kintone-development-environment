@@ -42,7 +42,6 @@ module.exports = (env, argv) => {
             }
         });
     });
-    console.log(entries);
 
     return {
     // 開発元
