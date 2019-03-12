@@ -1,9 +1,14 @@
 {
-  "extends": ["standard", "prettier", "eslint-config-kintone"],
+  "extends": [
+    "eslint-config-kintone",
+    "prettier"
+  ],
   "env": {
     "browser": true
   },
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "parserOptions": {
     "sourceType": "module"
   },
@@ -18,7 +23,7 @@
       "error",
       {
         "singleQuote": true,
-        "semi": false
+        "semi": true
       }
     ],
     "yoda": 0,
