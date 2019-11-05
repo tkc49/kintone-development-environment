@@ -5,7 +5,8 @@
 - webpack で babel を使ってビルド
 - Sass のコンパイル
 - ビルドしたファイルを kintone へデプロイ
-- kintone に既にアップロードされている js ファイルがある場合は、消さすに残す<br>例えば(kintone-printcreator-loader-xx.js)とか。
+- kintone に既にアップロードされている js ファイルがある場合は、消さすに残す<br>
+例えば(kintone-printcreator-loader-xx.js)とか。
 
 ## 必須
 
@@ -98,15 +99,27 @@ module.exports = {
 
 ### 5. ビルドする
 
-dev（開發環境としてビルド）
+開発者モードで、開発環境設定ファイル（dev_setting_deploy_app.js）を読み込んでビルドする.
 
-`npm run dev`
+`npm run dev -- --env='dev'`
 
 ※ ./env/dev_setting_deploy_app.js ファイルが必須
 
-prod（本番環境としてビルド）
+開発者モードで、本番環境設定ファイル（prod_setting_deploy_app.js）を読み込んでビルドする.
 
-`npm run build`
+`npm run dev -- --env='prod'`
+
+※ ./env/prod_setting_deploy_app.js ファイルが必須
+
+本番モードで、開発環境設定ファイル（dev_setting_deploy_app.js）を読み込んでビルドする.
+
+`npm run build -- --env='dev'`
+
+※ ./env/dev_setting_deploy_app.js ファイルが必須
+
+本番モードで、本番環境設定ファイル（prod_setting_deploy_app.js）を読み込んでビルドする.
+
+`npm run build -- --env='prod'`
 
 ※ ./env/prod_setting_deploy_app.js ファイルが必須
 
