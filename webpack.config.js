@@ -105,15 +105,16 @@ module.exports = (env, argv) => {
             // CSSをバンドルするための機能
             {
               loader: 'css-loader',
-              options: {
-                // オプションでCSS内のurl()メソッドの取り込みを禁止する
-                url: false,
-                // ソースマップの利用の有無
-                sourceMap: IS_DEVELOPMENT ? 'source-map' : 'none',
-                // 0 => no loaders(defalut)
-                // 1 => postcss-loader;
-                // 2 => postcss-loader, sass-loader
-                importLoader: 2
+                options: {
+                    // オプションでCSS内のurl()メソッドの取り込みを禁止する
+                    url: false,
+                    // ソースマップの利用の有無
+                    sourceMap: IS_DEVELOPMENT ? true : false,
+                    // 0 => no loaders(defalut)
+                    // 1 => postcss-loader;
+                    // 2 => postcss-loader, sass-loader
+                    importLoaders: 2
+                }
               }
             },
 
@@ -121,8 +122,8 @@ module.exports = (env, argv) => {
             {
               loader: 'sass-loader',
               options: {
-                // ソースマップの利用有無
-                sourceMap: IS_DEVELOPMENT ? 'source-map' : 'none'
+                  // ソースマップの利用有無
+                  sourceMap: IS_DEVELOPMENT ? true : false
               }
             }
           ]
