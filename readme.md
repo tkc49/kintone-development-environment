@@ -10,7 +10,7 @@
 
 ## 必須
 
-- NodeJS latest
+- NodeJS version 13.0.1
 
 ## 始め方
 
