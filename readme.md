@@ -14,6 +14,10 @@
 
 ## 始め方
 
+説明動画
+
+[![](https://img.youtube.com/vi/_OAnC9iuPsM/0.jpg)](https://www.youtube.com/watch?v=_OAnC9iuPsM)
+
 ### 1. 開發環境をダウンロード
 
 以下の URL から zip または tar.gz を DL した解凍してください。<br>
