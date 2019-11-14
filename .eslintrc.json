@@ -1,15 +1,16 @@
 {
 	"extends": [
-		"standard",
-		"prettier",
-		"eslint-config-kintone"
+		"@cybozu/eslint-config/presets/kintone-customize-es5"
 	],
 	"env": {
 		"browser": true
 	},
 	//  "plugins": ["prettier"],
+	"parser": "babel-eslint",
 	"parserOptions": {
-		"sourceType": "module"
+		"sourceType": "module",
+		"allowImportExportEverywhere": false,
+		"codeFrame": true
 	},
 	"rules": {
 		"no-irregular-whitespace": [
