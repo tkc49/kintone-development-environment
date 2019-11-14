@@ -63,46 +63,28 @@ module.exports = (env, argv) => {
         externals: {
             // kintoneUtitliyをCDNから利用するので。
             kintoneUtility: 'kintoneUtility'
+    module: {
+      rules: [
+        /**
+        *
+        * jsファイルをbabel-loderを利用して古いバージョンのJSに出力する
+        *
+        */
+        {
+          // test: /\.js$/,
+          // 公式ドキュメントにあわせる
+          // https://github.com/babel/babel-loader
+          test: /\.m?js$/,
+          // exclude: /node_modules/,
+          // 公式ドキュメントを参照
+          // https://github.com/babel/babel-loader
+          exclude: /(node_modules|bower_components)/,
+          use: [
+            {
+              loader: 'babel-loader',
+            }
+          ]
         },
-        module: {
-            rules: [
-                /**********************************************************
-                 *
-                 * jsファイルをbabel-loderを利用して古いバージョンのJSに出力する
-                 *
-                 **********************************************************/
-                {
-                    // test: /\.js$/,
-                    // 公式ドキュメントにあわせる
-                    // https://github.com/babel/babel-loader
-                    test: /\.m?js$/,
-                    // exclude: /node_modules/,
-                    // 公式ドキュメントを参照
-                    // https://github.com/babel/babel-loader
-                    exclude: /(node_modules|bower_components)/,
-                    use: [
-                        {
-                            loader: 'babel-loader',
-                            options: {
-                                // babel7を利用するので。
-                                // presets: ['env']
-                                presets: [
-                                    [
-                                        '@babel/preset-env',
-                                        {
-                                            'targets': {
-                                                'node': true
-                                            },
-                                            // 'useBuiltIns': 'usage',
-                                            'corejs': 3
-                                        }
-
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
                 /**********************************************************
                  *
                  * SASSの設定
