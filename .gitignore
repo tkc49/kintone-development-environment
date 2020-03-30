@@ -1,3 +1,4 @@
+.idea/
 node_modules/
 env/.dev_kintone
 env/.prod_kintone
