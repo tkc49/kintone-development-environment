@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
           }
           const fileName = fileArray.slice(-1)[0].replace(/\.js$/, '');
           entries[fileArray[0]] =
-                        './src/' + [fileArray[0] + '/' + fileName + '.js'];
+            './src/' + [fileArray[0] + '/' + fileName + '.js'];
         });
       }
     });
@@ -71,8 +71,8 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         /**
-        * jsファイルをbabel-loderを利用して古いバージョンのJSに出力する
-        */
+         * jsファイルをbabel-loderを利用して古いバージョンのJSに出力する
+         */
         {
           // test: /\.js$/,
           // 公式ドキュメントにあわせる
@@ -85,8 +85,8 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: 'babel-loader',
-            }
-          ]
+            },
+          ],
         },
         /**
          *
@@ -117,8 +117,8 @@ module.exports = (env, argv) => {
                 // 0 => no loaders(defalut)
                 // 1 => postcss-loader;
                 // 2 => postcss-loader, sass-loader
-                importLoaders: 2
-              }
+                importLoaders: 2,
+              },
             },
 
             // Sassコンパイル
@@ -127,11 +127,11 @@ module.exports = (env, argv) => {
               options: {
                 // ソースマップの利用有無
                 sourceMap: IS_DEVELOPMENT,
-              }
-            }
-          ]
-        }
-      ]
-    }
+              },
+            },
+          ],
+        },
+      ],
+    },
   };
 };
