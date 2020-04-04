@@ -8,15 +8,19 @@ module.exports = (env, argv) => {
   // argv.mode には 'development' が格納されている
   // そのためdevelopmentモードで実行したかどうかを判定できる
 
+  // モードの確認.
   let IS_DEVELOPMENT = false;
-  let mode;
   if (argv.mode === 'development') {
-    IS_DEVELOPMENT = argv.mode === 'development';
-    mode = 'dev';
-  } else if (argv.mode === 'production') {
-    mode = 'prod';
+    IS_DEVELOPMENT = true;
   }
 
+  // 環境（開発か本番）
+  let mode;
+  if (argv.env === 'dev') {
+    mode = 'dev';
+  } else if (argv.env === 'prod') {
+    mode = 'prod';
+  }
   const settingDeployApp = require(`./env/${mode}_setting_deploy_app.js`);
 
   const types = ['desktop', 'mobile'];
@@ -49,7 +53,7 @@ module.exports = (env, argv) => {
     // 開発元をコンパイルした時の出力先を設定
     output: {
       path: path.join(__dirname, './app'),
-      filename: '[name]/app.js'
+      filename: '[name]/app.js',
     },
     // // 各モジュールのインポート文が相対パスだらけにならないようにルートを設定
     resolve: {
