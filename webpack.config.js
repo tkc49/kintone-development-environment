@@ -8,17 +8,12 @@ module.exports = (env, argv) => {
   // argv.mode には 'development' が格納されている
   // そのためdevelopmentモードで実行したかどうかを判定できる
 
-  // モードの確認.
   let IS_DEVELOPMENT = false;
-  if (argv.mode === 'development') {
-    IS_DEVELOPMENT = true;
-  }
-
-  // 環境（開発か本番）
   let mode;
-  if (argv.env === 'dev') {
+  if (argv.mode === 'development') {
+    IS_DEVELOPMENT = argv.mode === 'development';
     mode = 'dev';
-  } else if (argv.env === 'prod') {
+  } else if (argv.mode === 'production') {
     mode = 'prod';
   }
 
@@ -58,19 +53,21 @@ module.exports = (env, argv) => {
     },
     // // 各モジュールのインポート文が相対パスだらけにならないようにルートを設定
     resolve: {
-      modules: ['node_modules', path.resolve(__dirname, 'src')],
+      modules: [
+        'node_modules',
+        path.resolve(__dirname, 'src'),
+        path.resolve(__dirname, 'env'),
+      ],
     },
     externals: {
-      // kintoneUtitliyをCDNから利用するので。
       kintone: 'kintone',
       kintoneUtility: 'kintoneUtility',
+      jquery: 'jQuery',
     },
     module: {
       rules: [
         /**
-        *
         * jsファイルをbabel-loderを利用して古いバージョンのJSに出力する
-        *
         */
         {
           // test: /\.js$/,
@@ -87,11 +84,18 @@ module.exports = (env, argv) => {
             }
           ]
         },
-        /** ********************************************************
-                 *
-                 * SASSの設定
-                 *
-                 **********************************************************/
+        /**
+         *
+         * CSSの設定
+         *
+         **/
+        {
+          test: /\.css$/,
+          loader: 'style-loader!css-loader',
+        },
+        /**
+         * SASSの設定
+         */
         {
           test: /\.scss/,
           use: [
@@ -105,7 +109,7 @@ module.exports = (env, argv) => {
                 // オプションでCSS内のurl()メソッドの取り込みを禁止する
                 url: false,
                 // ソースマップの利用の有無
-                sourceMap: !!IS_DEVELOPMENT,
+                sourceMap: IS_DEVELOPMENT,
                 // 0 => no loaders(defalut)
                 // 1 => postcss-loader;
                 // 2 => postcss-loader, sass-loader
@@ -118,7 +122,7 @@ module.exports = (env, argv) => {
               loader: 'sass-loader',
               options: {
                 // ソースマップの利用有無
-                sourceMap: !!IS_DEVELOPMENT
+                sourceMap: IS_DEVELOPMENT,
               }
             }
           ]

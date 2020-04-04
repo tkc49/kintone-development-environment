@@ -1,41 +1,54 @@
 {
-	"extends": [
-		"@cybozu/eslint-config/presets/kintone-customize-es5"
-	],
-	"env": {
-		"browser": true
-	},
-	//  "plugins": ["prettier"],
-	"parser": "babel-eslint",
-	"parserOptions": {
-		"sourceType": "module",
-		"allowImportExportEverywhere": false,
-		"codeFrame": true
-	},
-	"rules": {
-		"no-irregular-whitespace": [
-			"error",
-			{
-				"skipRegExps": true
-			}
-		],
-		"no-underscore-dangle": [
-			"off"
-		],
-		//    "prettier/prettier": [
-		//      "error",
-		//      {
-		//        "singleQuote": true,
-		//        "semi": false
-		//      }
-		//    ],
-		"yoda": 0,
-		"no-unused-vars": 1
-	},
-	"globals": {
-		"$": false,
-		"kintoneUtility": false,
-		"google": false,
-		"kintone": false
-	}
+  "extends": [
+    "@cybozu/eslint-config/presets/kintone-customize-es5-prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  //  "plugins": ["prettier"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "allowImportExportEverywhere": false,
+    "codeFrame": true
+  },
+  "rules": {
+    "no-irregular-whitespace": [
+      "error",
+      {
+        "skipRegExps": true
+      }
+    ],
+    "no-underscore-dangle": [
+      "off"
+    ],
+    //    "prettier/prettier": [
+    //      "error",
+    //      {
+    //        "singleQuote": true,
+    //        "semi": false
+    //      }
+    //    ],
+    "yoda": 0,
+    "no-unused-vars": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "quoteProps": "preserve"
+      }
+    ]
+  },
+  "globals": {
+    "$": false,
+    "kintoneUtility": false,
+    "google": false,
+    "kintone": false
+  }
 }
