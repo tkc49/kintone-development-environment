@@ -65,8 +65,6 @@ module.exports = (env, argv) => {
     },
     externals: {
       kintone: 'kintone',
-      kintoneUtility: 'kintoneUtility',
-      jquery: 'jQuery',
     },
     module: {
       rules: [

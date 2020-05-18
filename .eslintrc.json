@@ -47,7 +47,6 @@
   },
   "globals": {
     "$": false,
-    "kintoneUtility": false,
     "google": false,
     "kintone": false
   }

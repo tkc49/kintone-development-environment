@@ -46,8 +46,11 @@
 		"webpack-cli": "^3.2.3"
 	},
 	"dependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0",
 		"@kintone/kintone-js-sdk": "^0.7.1",
 		"axios": "^0.18.0",
-		"form-data": "^2.3.3"
-	}
+		"form-data": "^2.3.3",
+        "jquery": "^3.5.0",
+        "sweetalert2": "^9.10.12"
+    }
 }
