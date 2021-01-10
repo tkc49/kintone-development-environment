@@ -65,7 +65,7 @@ module.exports = (env, argv) => {
     },
     externals: {
       kintone: 'kintone',
-      kintoneUtility:'kintoneUtility'
+      kintoneUtility: 'kintoneUtility',
     },
     module: {
       rules: [
