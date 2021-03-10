@@ -1,14 +1,19 @@
 {
   "extends": [
-    "@cybozu/eslint-config/presets/kintone-customize-es5-prettier"
+    "@cybozu/eslint-config/presets/kintone-customize-es5-prettier",
+    "plugin:vue/recommended",
+    "prettier/vue"
   ],
   "env": {
     "browser": true,
     "node": true
   },
-  //  "plugins": ["prettier"],
-  "parser": "@babel/eslint-parser",
+  "plugins": [
+    "vue"
+  ],
+  "parser": "vue-eslint-parser",
   "parserOptions": {
+    "parser": "@babel/eslint-parser",
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -27,13 +32,6 @@
     "no-underscore-dangle": [
       "off"
     ],
-    //    "prettier/prettier": [
-    //      "error",
-    //      {
-    //        "singleQuote": true,
-    //        "semi": false
-    //      }
-    //    ],
     "yoda": 0,
     "no-unused-vars": 1,
     "prettier/prettier": [
